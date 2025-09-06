@@ -26,7 +26,7 @@
     <None Include="Shader\core.vs" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main_Modelado.cpp" />
+    <ClCompile Include="Practica4.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
