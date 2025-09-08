@@ -200,7 +200,7 @@ int main() {
 
 		glBindVertexArray(VAO);
 
-		// Color por objeto sin cambiar shaders
+		// Color por objeto
 		glDisableVertexAttribArray(1);
 
 		//Superficie (gris oscuro)
