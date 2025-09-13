@@ -1,6 +1,6 @@
 //David Moroni Sanchez Galvan
-//Previo 5
-//Fecha de entrega: 07/09/2025
+//Practica 5
+//Fecha de entrega: 12/09/2025
 //Numero de cuenta: 318107680
 
 #include<iostream>
