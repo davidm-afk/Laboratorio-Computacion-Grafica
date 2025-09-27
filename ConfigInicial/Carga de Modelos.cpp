@@ -1,3 +1,9 @@
+//David Moroni Sanchez Galván
+//Practica 6
+//Fecha de entrega : 26/09/2025
+//Numero de cuenta: 318107680
+
+
 // Std. Includes
 #include <string>
 
@@ -54,7 +60,7 @@ int main( )
     glfwWindowHint( GLFW_RESIZABLE, GL_FALSE );
     
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "Carga de modelos y camara sintetica", nullptr, nullptr );
+    GLFWwindow *window = glfwCreateWindow( WIDTH, HEIGHT, "David Moroni Sánchez Galván", nullptr, nullptr );
     
     if ( nullptr == window )
     {
@@ -95,6 +101,11 @@ int main( )
     
     // Load models
     Model dog((char*)"Models/RedDog.obj");
+	Model pared((char*)"Models/pared.obj");
+	Model baño((char*)"Models/baño.obj");
+	Model sink((char*)"Models/Bathroom_Sink.obj");
+	Model piso((char*)"Models/piso.obj");
+	Model shelf((char*)"Models/shelf.obj");
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
   
@@ -122,10 +133,52 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
 
         // Draw the loaded model
-        glm::mat4 model(1);
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        // Perro
+        glm::mat4 modelDog = glm::mat4(1.0f);
+        modelDog = glm::translate(modelDog, glm::vec3(0.53f, 0.0f, 1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelDog));
         dog.Draw(shader);
-        
+
+        // Pared
+        glm::mat4 modelPared = glm::mat4(1.0f);
+        modelPared = glm::translate(modelPared, glm::vec3(-2.0f, -1.0f, 0.0f));
+        modelPared = glm::scale(modelPared, glm::vec3(1.5f, 1.5f, 1.5f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelPared));
+        pared.Draw(shader);
+
+        // Baño
+        glm::mat4 modelBano = glm::mat4(1.0f);
+        modelBano = glm::scale(modelBano, glm::vec3(0.05f, 0.05f, 0.05f));
+        modelBano = glm::translate(modelBano, glm::vec3(15.0f, 0.0f, 16.0f));
+        modelBano = glm::rotate(modelBano, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelBano));
+        baño.Draw(shader);
+
+		// Mirror
+		glm::mat4 modelSink = glm::mat4(1.0f);
+		//modelSink = glm::rotate(modelSink, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		modelSink = glm::scale(modelSink, glm::vec3(0.021f, 0.021f, 0.021f));
+		modelSink = glm::translate(modelSink, glm::vec3(100.0f, -10.0f, 22.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelSink));
+        sink.Draw(shader);
+
+        //Piso
+		glm::mat4 modelPiso = glm::mat4(1.0f);
+		modelPiso = glm::rotate(modelPiso, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		modelPiso = glm::scale(modelPiso, glm::vec3(0.002f, 0.002f, 0.002f));
+		modelPiso = glm::translate(modelPiso, glm::vec3(700.0f, -100.0f, 500.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelPiso));
+        piso.Draw(shader);
+
+		//Shelf
+		glm::mat4 modelShelf = glm::mat4(1.0f);
+		modelShelf = glm::translate(modelShelf, glm::vec3(2.0f, 1.2f, 0.1f));
+		modelShelf = glm::scale(modelShelf, glm::vec3(2.0f, 2.0f, 2.0f));
+		modelShelf = glm::rotate(modelShelf, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(modelShelf));
+        shelf.Draw(shader);
+
+
 
         // Swap the buffers
         glfwSwapBuffers( window );
