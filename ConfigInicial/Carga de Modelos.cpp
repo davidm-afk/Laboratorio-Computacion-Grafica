@@ -1,6 +1,6 @@
 //David Moroni Sanchez Galván
-//Practica 6
-//Fecha de entrega : 26/09/2025
+//Previo 7
+//Fecha de entrega : 28/09/2025
 //Numero de cuenta: 318107680
 
 
