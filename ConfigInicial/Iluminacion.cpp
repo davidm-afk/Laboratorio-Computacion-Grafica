@@ -1,5 +1,5 @@
 //David Moroni Sanchez Galvan
-// Previo 8
+// Practica 8
 // Fecha de entrega : 17/10/2025
 // Numero de cuenta: 318107680
 
@@ -62,7 +62,7 @@ int main()
     glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);
 
     // Create a GLFWwindow object that we can use for GLFW's functions
-    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Materiales e Iluminacion", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "David Moroni Sanchez Galvan", nullptr, nullptr);
 
     if (nullptr == window)
     {
