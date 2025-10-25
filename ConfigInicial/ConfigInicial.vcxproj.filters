@@ -49,7 +49,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Practica8.cpp">
+    <ClCompile Include="Practica9.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
